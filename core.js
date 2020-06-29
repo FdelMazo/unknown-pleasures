@@ -201,6 +201,19 @@
         dancer.bind('loaded', loaded);
       }
       if (dancer.isPlaying()) {
+        dancer.pause();
+      } else {
+        dancer.play();
+      }
+    }
+    if (e.keyCode === 77) {
+      if (!dancer.isLoaded()) {
+        dancer.load({
+          microphone: true
+        });
+        dancer.bind('loaded', loaded);
+      }
+      if (dancer.isPlaying()) {
         return dancer.pause();
       } else {
         return dancer.play();

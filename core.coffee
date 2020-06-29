@@ -167,6 +167,11 @@ window.addEventListener('keydown', ((e) ->
 			dancer.load({ src: AUDIO_FILE })
 			dancer.bind 'loaded', loaded
 		if dancer.isPlaying() then dancer.pause() else dancer.play()
+	if e.keyCode == 77
+		if !dancer.isLoaded()
+			dancer.load({ microphone: true })
+			dancer.bind 'loaded', loaded
+		if dancer.isPlaying() then dancer.pause() else dancer.play()
 ).bind(this))
 
 loaded = -> d3.selectAll( 'h2' ).style( 'display', 'none' )
