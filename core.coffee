@@ -155,7 +155,6 @@ Dancer.addPlugin 'fft', ->
 
 Dancer.setOptions {
 	flashJS  : './lib/soundmanager2.js',
-	flashSWF : './lib/soundmanager2.swf'
 }
 
 dancer = new Dancer()
