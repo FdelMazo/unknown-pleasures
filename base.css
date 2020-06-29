@@ -1,4 +1,4 @@
-/*  
+/*
 	Unknown Pleasures
 */
 * {
@@ -9,7 +9,8 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   overflow: hidden;
   height: 100%;
 }
@@ -17,7 +18,7 @@ body {
   background: #0f0f0f url("lib/noise.jpg") center repeat;
   color: #fff;
   text-align: center;
-  font-family: Georgia,serif;
+  font-family: Georgia, serif;
 }
 #wrapper {
   -webkit-perspective: 1000px;
@@ -37,7 +38,8 @@ body {
   -moz-transform-origin: center center;
   transform-origin: center center;
 }
-h1 {
+h1,
+h2 {
   text-transform: uppercase;
   font-size: 50px;
   color: #000;
@@ -46,8 +48,19 @@ h1 {
   position: absolute;
   width: 100%;
   z-index: 1000;
-  text-shadow: 0 0 3px #000;
+  text-shadow: 0 0 2px Silver;
+}
+h1 {
   line-height: 750px;
+}
+h2 {
+  font-size: 40px;
+}
+.top {
+  line-height: 250px;
+}
+.bottom {
+  line-height: 1250px;
 }
 svg {
   display: block;
