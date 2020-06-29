@@ -2,7 +2,7 @@
 
 Visualize your microphone with Joy Division's pulsar.
 
-<img src='https://i.imgur.com/ceN0WRW.gif'>
+<img src='https://i.imgur.com/Imbxtu3.gif'>
 
 ## Development
 
