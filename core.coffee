@@ -146,7 +146,7 @@ window.onmouseup = window.touchend = ->
 # dancer.js
 #------------------------------
 
-AUDIO_FILE = container.attr( 'data-music' )
+AUDIO_FILE = "audio/Disorder.mp3"
 
 spectrum = []
 Dancer.addPlugin 'fft', ->
@@ -158,21 +158,17 @@ Dancer.setOptions {
 }
 
 dancer = new Dancer()
-dancer.load({ src: AUDIO_FILE, codecs: ['ogg', 'mp3'] })
-
 dancer.fft()
 
-loaded = ->
-	d3.select( 'h1' ).style( 'display', 'none' )
-	clearInterval loadingText
-	dancer.play()
 
-dancer.bind 'loaded', loaded
+window.addEventListener('keydown', ((e) ->
+	if e.keyCode == 32
+		if !dancer.isLoaded()
+			dancer.load({ src: AUDIO_FILE })
+			dancer.bind 'loaded', loaded
+		if dancer.isPlaying() then dancer.pause() else dancer.play()
+).bind(this))
 
-loadingText = setInterval ->
-	percent = Math.floor( dancer.getProgress() * 100 ) + "%"
-	if dancer.getProgress() != undefined and dancer.getProgress() != 0
-		d3.select( 'h1' ).html = percent
-, 100
+loaded = -> d3.selectAll( 'h2' ).style( 'display', 'none' )
 
 return
