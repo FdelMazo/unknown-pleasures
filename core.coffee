@@ -160,18 +160,21 @@ Dancer.setOptions {
 dancer = new Dancer()
 dancer.fft()
 
+hasLoaded = false
 
 window.addEventListener('keydown', ((e) ->
 	if e.keyCode == 32
-		if !dancer.isLoaded()
+		if !hasLoaded
 			dancer.load({ src: AUDIO_FILE })
 			dancer.bind 'loaded', loaded
+			hasLoaded = true
 		if dancer.isPlaying() then dancer.pause() else dancer.play()
 	if e.keyCode == 77
-		if !dancer.isLoaded()
+		if !hasLoaded
 			dancer.load({ microphone: true })
 			dancer.bind 'loaded', loaded
-		if dancer.isPlaying() then dancer.pause() else dancer.play()
+			hasLoaded = true
+			dancer.play()
 ).bind(this))
 
 loaded = -> d3.selectAll( 'h2' ).style( 'display', 'none' )

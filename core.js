@@ -3,7 +3,7 @@
   // Unknown Pleasures
 
   // IE unsupported
-  var AUDIO_FILE, GRADIENT, ROWS, container, dancer, data, delta, doTransform, getData, initData, isDrag, j, k, line, loaded, maxTransform, move, noise, origin, pulsar, pulse, ref, settings, spectrum, transform, x, y;
+  var AUDIO_FILE, GRADIENT, ROWS, container, dancer, data, delta, doTransform, getData, hasLoaded, initData, isDrag, j, k, line, loaded, maxTransform, move, noise, origin, pulsar, pulse, ref, settings, spectrum, transform, x, y;
 
   if (navigator.userAgent.match('MSIE')) {
     d3.select('h1').html('Unsupported');
@@ -192,13 +192,16 @@
 
   dancer.fft();
 
+  hasLoaded = false;
+
   window.addEventListener('keydown', (function(e) {
     if (e.keyCode === 32) {
-      if (!dancer.isLoaded()) {
+      if (!hasLoaded) {
         dancer.load({
           src: AUDIO_FILE
         });
         dancer.bind('loaded', loaded);
+        hasLoaded = true;
       }
       if (dancer.isPlaying()) {
         dancer.pause();
@@ -207,15 +210,12 @@
       }
     }
     if (e.keyCode === 77) {
-      if (!dancer.isLoaded()) {
+      if (!hasLoaded) {
         dancer.load({
           microphone: true
         });
         dancer.bind('loaded', loaded);
-      }
-      if (dancer.isPlaying()) {
-        return dancer.pause();
-      } else {
+        hasLoaded = true;
         return dancer.play();
       }
     }
