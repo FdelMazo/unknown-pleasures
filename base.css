@@ -57,10 +57,10 @@ h2 {
   font-size: 40px;
 }
 .top {
-  line-height: 250px;
+  top: 20%;
 }
 .bottom {
-  line-height: 1250px;
+  bottom: 20%;
 }
 svg {
   display: block;
