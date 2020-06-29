@@ -174,7 +174,7 @@
   //------------------------------
   // dancer.js
   //------------------------------
-  AUDIO_FILE = "audio/Disorder.mp3";
+  AUDIO_FILE = "audio/unknown.mp3";
 
   spectrum = [];
 
